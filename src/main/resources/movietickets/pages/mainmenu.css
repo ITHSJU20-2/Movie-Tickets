@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+.root {
+    -fx-font-family: 'Nunito', sans-serif;
+    -fx-font-size: 1.2em;
+    outline: none;
+}
+
+.main-label {
+    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+
+.main-button {
+    -fx-background-color: chartreuse;
+    -fx-text-fill: black;
+    -fx-padding: 5px 25px;
+    -fx-opacity: 1;
+    -fx-cursor: hand;
+}
+
+.main-button:disabled {
+    -fx-opacity: 0;
+}
+
+.main-drop-down {
+    -fx-background-color: rgba(0,0,0,0.15);
+}
+
+.main-drop-down .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 4pt;
+}
+
+.main-drop-down .list-view .list-cell {
+    -fx-background-radius: 4pt;
+}
+
+.main-drop-down .list-view .list-cell:hover, .main-drop-down .list-view .list-cell:selected {
+    -fx-background-color: rgba(0,0,0,0.15);
+    -fx-text-fill: black;
+}
