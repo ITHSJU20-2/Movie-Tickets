@@ -1,8 +1,6 @@
 package movietickets.pages;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,6 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import movietickets.Customer;
 import movietickets.Main;
 
 import java.util.Arrays;
@@ -103,7 +102,6 @@ public class Booking implements Page {
 
     private Pattern phonePatten = Pattern.compile("\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}");
 
-
     private String movie;
 
     private final Scene scene;
@@ -195,6 +193,15 @@ public class Booking implements Page {
         });
 
         cancelButton.setOnAction(event -> Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene()));
+
+        bookButton.setOnAction(event -> {
+            Customer customer = new Customer();
+            customer.setName(customerName);
+            customer.setEmail(customerEmail);
+            customer.setPhoneNumber(customerNumber);
+            customer.setNumberOfTickets(ticketsPurchased);
+            Main.getInstance().setCustomer(customer);
+        });
     }
 
     public Scene getScene() {

@@ -6,13 +6,6 @@ public class Customer {
     private String phoneNumber;
     private int numberOfTickets;
 
-    public Customer(String name, String email, String phoneNumber, int numberOfTickets){
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.numberOfTickets = numberOfTickets;
-    }
-
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 

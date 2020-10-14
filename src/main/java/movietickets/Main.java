@@ -11,6 +11,8 @@ public class Main extends Application {
     private static final MovieList movieList = new MovieList();
     private static Main INSTANCE;
 
+    private Customer customer;
+
     private MainMenu mainMenu;
     private Booking booking;
 
@@ -55,5 +57,13 @@ public class Main extends Application {
 
     public Stage getStage() {
         return stage;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
