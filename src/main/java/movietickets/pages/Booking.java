@@ -175,34 +175,26 @@ public class Booking implements Page {
 
     @Override
     public void registerListeners() {
-        confirmButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (!emailPattern.matcher(emailInput.getText()).matches()) {
-                    response.setText("Din E-Mejl är inte godkänd");
-                    return;
-                }
-
-                if (!phonePatten.matcher(phoneInput.getText()).matches()) {
-                    response.setText("Ditt telefon nummer är inte godkänt");
-                    return;
-                }
-                customerName = nameInput.getText();
-                customerEmail = emailInput.getText();
-                customerNumber = phoneInput.getText();
-                ticketsPurchased = ticketsInput.getValue();
-                bookButton.setVisible(true);
-
-                response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefon Nummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka på boka för att fortsätta!");
+        confirmButton.setOnAction(event -> {
+            if (!emailPattern.matcher(emailInput.getText()).matches()) {
+                response.setText("Din E-Mejl är inte godkänd");
+                return;
             }
+
+            if (!phonePatten.matcher(phoneInput.getText()).matches()) {
+                response.setText("Ditt telefon nummer är inte godkänt");
+                return;
+            }
+            customerName = nameInput.getText();
+            customerEmail = emailInput.getText();
+            customerNumber = phoneInput.getText();
+            ticketsPurchased = ticketsInput.getValue();
+            bookButton.setVisible(true);
+
+            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefon Nummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka på boka för att fortsätta!");
         });
 
-        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene());
-            }
-        });
+        cancelButton.setOnAction(event -> Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene()));
     }
 
     public Scene getScene() {

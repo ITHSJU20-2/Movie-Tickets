@@ -109,31 +109,24 @@ public class MainMenu implements Page {
     @Override
     public void registerListeners() {
         // Change the information label values when changing the value of the drop down (ComboBox)
-        dropDown.valueProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                Movie movie = Main.getInstance().getMovieList().getMovieByTitle(newValue);
-                if (movie == null) {
-                    return;
-                }
-                DecimalFormat df = new DecimalFormat("#,###.##");
-                description.setText(movie.getDescription());
-                length.setText(movie.getLength() + " minuter");
-                genre.setText(movie.getGenre());
-                rating.setText(movie.getRating());
-                price.setText(df.format(movie.getPrice()) + " kr");
-                button.setVisible(true);
+        dropDown.valueProperty().addListener((observable, oldValue, newValue) -> {
+            Movie movie = Main.getInstance().getMovieList().getMovieByTitle(newValue);
+            if (movie == null) {
+                return;
             }
+            DecimalFormat df = new DecimalFormat("#,###.##");
+            description.setText(movie.getDescription());
+            length.setText(movie.getLength() + " minuter");
+            genre.setText(movie.getGenre());
+            rating.setText(movie.getRating());
+            price.setText(df.format(movie.getPrice()) + " kr");
+            button.setVisible(true);
         });
 
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // CHANGE SCENE TO BOOKING SCENE
-                Main.getInstance().getBooking().setMovie(dropDown.getValue());
-                System.out.println(dropDown.getValue());
-                Main.getInstance().getStage().setScene(Main.getInstance().getBooking().getScene());
-            }
+        button.setOnAction(event -> {
+            // CHANGE SCENE TO BOOKING SCENE
+            Main.getInstance().getBooking().setMovie(dropDown.getValue());
+            Main.getInstance().getStage().setScene(Main.getInstance().getBooking().getScene());
         });
     }
 }
