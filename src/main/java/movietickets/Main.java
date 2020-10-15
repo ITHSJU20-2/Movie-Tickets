@@ -30,7 +30,7 @@ public class Main extends Application {
 
     public void createMovieData() {
         movieList.addMovie(new Movie("Star Wars", 140, "Science Fiction", "15 \u00E5r", 100, "In a galaxy far far away."));
-        movieList.addMovie(new Movie("Lord of The Rings", 140, "Fantasy", "15 \u00E5r", 115, "My precious."));
+        movieList.addMovie(new Movie("Lord of The Rings", 180, "Fantasy", "15 \u00E5r", 115, "Stupid, fat hobbitses."));
     }
 
     @Override
