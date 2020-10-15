@@ -139,7 +139,7 @@ public class SeatSelection implements Page {
     public void registerListeners() {
 
         cancelButton.setOnAction(event -> {
-            Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene());
+            Main.getInstance().getStage().setScene(Main.getInstance().getBooking().getScene());
         });
 
         verifyButton.setOnAction(event -> {

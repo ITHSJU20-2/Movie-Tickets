@@ -63,6 +63,7 @@ public class MainMenu implements Page {
         gridPane.setVgap(10);
         gridPane.setHgap(5);
         gridPane.setMinSize(400, 200);
+        //gridPane.setStyle("-fx-background-color: rgba(207,145,0,81)");
 
         /*
         GRID LAYOUT

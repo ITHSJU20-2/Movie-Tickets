@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import movietickets.Customer;
 import movietickets.Main;
@@ -118,7 +115,7 @@ public class Booking implements Page {
     private final TextField emailInput = new TextField();
     private final TextField phoneInput = new TextField();
 
-    private final ChoiceBox<Integer> ticketsInput = new ChoiceBox<>(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+    private final ComboBox<Integer> ticketsInput = new ComboBox<>(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
 
     private final Button confirmButton = new Button("Verifiera");
     private final Button cancelButton = new Button("Avbryt");
@@ -131,7 +128,7 @@ public class Booking implements Page {
     public Booking() {
 
         // Add the necessary classes for styling through CSS
-
+        ticketsInput.getStyleClass().add("ticketsDropDown");
         bookButton.setVisible(false);
 
         ticketsInput.setValue(1);
@@ -173,12 +170,12 @@ public class Booking implements Page {
     public void registerListeners() {
         confirmButton.setOnAction(event -> {
             if (!emailPattern.matcher(emailInput.getText()).matches()) {
-                response.setText("Din E-Mejl är inte godk\u00E4nd");
+                response.setText("Din E-Mejl \u00E4r inte godk\u00E4nd");
                 return;
             }
 
             if (!phonePatten.matcher(phoneInput.getText()).matches()) {
-                response.setText("Ditt telefonnummer är inte godk\u00E4nt");
+                response.setText("Ditt telefonnummer \u00E4r inte godk\u00E4nt");
                 return;
             }
 
@@ -188,7 +185,7 @@ public class Booking implements Page {
             ticketsPurchased = ticketsInput.getValue();
             bookButton.setVisible(true);
 
-            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefonnummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka p\u00E5 boka f\u00F6r att forts\u00E4tta!");
+            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefonnummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\nKlicka p\u00E5 boka f\u00F6r att forts\u00E4tta!");
         });
 
         cancelButton.setOnAction(event -> Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene()));

@@ -28,7 +28,7 @@ public class Confirmation implements Page {
     private Label price = new Label();
 
     private final Label movieLabel = new Label("Film");
-    private final Label lengthLabel = new Label("Längd");
+    private final Label lengthLabel = new Label("L\u00E4ngd");
     private final Label genreLabel = new Label("Genre");
     private final Label ratingLabel = new Label("Rekommenderat Fr\u00E5n");
     private final Label priceLabel = new Label("Pris");
@@ -59,7 +59,7 @@ public class Confirmation implements Page {
         confirmationReceiptLabel.setTextFill(Color.GREEN);
         confirmationReceiptLabel.getStyleClass().add("conf-label");
 
-        Label ticketReceipt = new Label("Här är ditt kvitto");
+        Label ticketReceipt = new Label("H\u00E4r \u00E4r ditt kvitto");
         ticketReceipt.setTextFill(Color.BLUE);
         ticketReceipt.getStyleClass().add("conf-label");
 
