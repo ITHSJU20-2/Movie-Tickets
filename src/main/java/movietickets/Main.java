@@ -24,15 +24,13 @@ public class Main extends Application {
 
     private Stage stage;
 
-    char auml = '\u00E4';
-
     public static void main(String[] args) {
         launch(args);
     }
 
     public void createMovieData() {
         movieList.addMovie(new Movie("Star Wars", 140, "Science Fiction", "15 \u00E5r", 100, "In a galaxy far far away."));
-        movieList.addMovie(new Movie("Lord of The Rings", 140, "I don't know", "15 \u00E5r", 1000, "My precious."));
+        movieList.addMovie(new Movie("Lord of The Rings", 140, "Fantasy", "15 \u00E5r", 115, "My precious."));
     }
 
     @Override

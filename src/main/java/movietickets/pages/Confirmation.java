@@ -5,16 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import movietickets.Customer;
 import movietickets.Main;
-import movietickets.Movie;
-import movietickets.pages.Booking;
-import movietickets.pages.Page;
 
 import java.text.DecimalFormat;
 
@@ -82,8 +75,8 @@ public class Confirmation implements Page {
         phoneLabel.getStyleClass().add("main-label");
         ticketsLabel.getStyleClass().add("main-label");
 
-        gridPane.add(confirmationReceiptLabel, 0,0);
-        gridPane.add(ticketReceipt,0,4);
+        gridPane.add(confirmationReceiptLabel, 0, 0);
+        gridPane.add(ticketReceipt, 0, 4);
 
         gridPane.add(movieLabel, 0, 5);
         gridPane.add(movie, 0, 6);
@@ -106,13 +99,13 @@ public class Confirmation implements Page {
         gridPane.add(mainMenuButton, 1, 13);
 
         gridPane.add(nameLabel, 1, 5);
-        gridPane.add(customerName, 1,6);
+        gridPane.add(customerName, 1, 6);
 
         gridPane.add(emailLabel, 1, 7);
-        gridPane.add(customerEmail, 1,8);
+        gridPane.add(customerEmail, 1, 8);
 
         gridPane.add(phoneLabel, 1, 9);
-        gridPane.add(customerNumber, 1,10);
+        gridPane.add(customerNumber, 1, 10);
 
         scene = new Scene(gridPane);
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
@@ -120,12 +113,13 @@ public class Confirmation implements Page {
         registerListeners();
 
     }
+
     public Scene getScene() {
         DecimalFormat df = new DecimalFormat("#,###.##");
         movie.setText(Main.getInstance().getMovie().getTitle());
         rating.setText(Main.getInstance().getMovie().getRating());
         price.setText(df.format(Main.getInstance().getMovie().getPrice()) + "kr " + " x " + Main.getInstance().getCustomer().getNumberOfTickets());
-        length.setText(Main.getInstance().getMovie().getLength()+ "");
+        length.setText(Main.getInstance().getMovie().getLength() + "");
         genre.setText(Main.getInstance().getMovie().getGenre());
         ticketsBought.setText(String.join(", ", Main.getInstance().getCustomer().getSeats()));
         return scene;
@@ -140,7 +134,6 @@ public class Confirmation implements Page {
             // CHANGE SCENE TO CONFIRMATION SCENE
             Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene());
         });
-
 
 
     }
