@@ -64,12 +64,10 @@ public class Confirmation implements Page {
         // Label for confirmation that tickets are booked
         Label confirmationReceiptLabel = new Label("Dina biljetter har blivit bokade!");
         confirmationReceiptLabel.setTextFill(Color.GREEN);
-//        confirmationReceiptLabel.setFont(Font.font("Nunito", FontWeight.BOLD, 15));
         confirmationReceiptLabel.getStyleClass().add("conf-label");
 
         Label ticketReceipt = new Label("Här är ditt kvitto");
         ticketReceipt.setTextFill(Color.BLUE);
-//        ticketReceipt.setFont(Font.font("Nunito", FontWeight.BOLD, 15));
         ticketReceipt.getStyleClass().add("conf-label");
 
         //Labels And Text Alignment For Receipt

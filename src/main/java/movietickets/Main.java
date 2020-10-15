@@ -47,9 +47,9 @@ public class Main extends Application {
         seatSelection = new SeatSelection();
         confirmation = new Confirmation();
 
-        stage.setTitle("To Be Determined");
+        stage.setTitle("Java Filmer ☕️");
         stage.setScene(mainMenu.getScene());
-//        stage.setResizable(false);
+        stage.setResizable(false);
         stage.show();
     }
 
