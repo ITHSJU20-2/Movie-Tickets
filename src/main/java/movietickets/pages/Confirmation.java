@@ -37,7 +37,7 @@ public class Confirmation implements Page {
     private final Label movieLabel = new Label("Film");
     private final Label lengthLabel = new Label("Längd");
     private final Label genreLabel = new Label("Genre");
-    private final Label ratingLabel = new Label("Rekommenderat Från");
+    private final Label ratingLabel = new Label("Rekommenderat Fr\u00E5n");
     private final Label priceLabel = new Label("Pris");
 
     private final Label nameLabel = new Label("Namn");

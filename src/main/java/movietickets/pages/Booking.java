@@ -173,12 +173,12 @@ public class Booking implements Page {
     public void registerListeners() {
         confirmButton.setOnAction(event -> {
             if (!emailPattern.matcher(emailInput.getText()).matches()) {
-                response.setText("Din E-Mejl är inte godkänd");
+                response.setText("Din E-Mejl är inte godk\u00E4nd");
                 return;
             }
 
             if (!phonePatten.matcher(phoneInput.getText()).matches()) {
-                response.setText("Ditt telefonnummer är inte godkänt");
+                response.setText("Ditt telefonnummer är inte godk\u00E4nt");
                 return;
             }
 
@@ -188,7 +188,7 @@ public class Booking implements Page {
             ticketsPurchased = ticketsInput.getValue();
             bookButton.setVisible(true);
 
-            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefonnummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka på boka för att fortsätta!");
+            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefonnummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka p\u00E5 boka f\u00F6r att forts\u00E4tta!");
         });
 
         cancelButton.setOnAction(event -> Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene()));

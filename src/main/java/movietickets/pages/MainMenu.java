@@ -17,9 +17,9 @@ public class MainMenu implements Page {
     private final Scene scene;
 
     private final Label descriptionLabel = new Label("Beskrivning");
-    private final Label lengthLabel = new Label("Längd");
+    private final Label lengthLabel = new Label("L\u00E4ngd");
     private final Label genreLabel = new Label("Genre");
-    private final Label ratingLabel = new Label("Rekommenderat Från");
+    private final Label ratingLabel = new Label("Rekommenderat Fr\u00E5n");
     private final Label priceLabel = new Label("Pris");
 
     private final Label description = new Label();
@@ -54,7 +54,7 @@ public class MainMenu implements Page {
 
         dropDown.getStyleClass().add("main-drop-down");
 
-        dropDown.setValue("Välj Film");
+        dropDown.setValue("V\u00E4lj Film");
         Main.getInstance().getMovieList().getMovieList().forEach(movie -> dropDown.getItems().add(movie.getTitle()));
 
         gridPane.setAlignment(Pos.BASELINE_LEFT);

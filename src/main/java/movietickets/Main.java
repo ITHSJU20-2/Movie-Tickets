@@ -24,13 +24,15 @@ public class Main extends Application {
 
     private Stage stage;
 
+    char auml = '\u00E4';
+
     public static void main(String[] args) {
         launch(args);
     }
 
     public void createMovieData() {
-        movieList.addMovie(new Movie("Star Wars", 140, "Science Fiction", "15 år", 100, "In a galaxy far far away."));
-        movieList.addMovie(new Movie("Lord of The Rings", 140, "I don't know", "15 år", 1000, "My precious."));
+        movieList.addMovie(new Movie("Star Wars", 140, "Science Fiction", "15 \u00E5r", 100, "In a galaxy far far away."));
+        movieList.addMovie(new Movie("Lord of The Rings", 140, "I don't know", "15 \u00E5r", 1000, "My precious."));
     }
 
     @Override
@@ -47,7 +49,7 @@ public class Main extends Application {
         seatSelection = new SeatSelection();
         confirmation = new Confirmation();
 
-        stage.setTitle("Java Filmer ☕️");
+        stage.setTitle("Java Filmer️");
         stage.setScene(mainMenu.getScene());
         stage.setResizable(false);
         stage.show();

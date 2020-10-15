@@ -38,7 +38,7 @@ public class SeatSelection implements Page {
     private Text row5 = new Text("5");
 
     private Button cancelButton = new Button("Avbryt");
-    private Button nextButton = new Button("Nästa");
+    private Button nextButton = new Button("N\u00E4sta");
     private Button verifyButton = new Button("Verifiera");
 
     private Label response = new Label();
@@ -64,7 +64,7 @@ public class SeatSelection implements Page {
     private CheckBox checkBox19 = new CheckBox();
     private CheckBox checkBox20 = new CheckBox();
 
-    private Label header = new Label("\tVälj plats(er)!");
+    private Label header = new Label("\tV\u00E4lj plats(er)!");
 
     public SeatSelection() {
 
