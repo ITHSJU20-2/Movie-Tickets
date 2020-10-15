@@ -93,7 +93,7 @@ public class MainMenu implements Page {
         gridPane.add(button, 0, 3);
 
         scene = new Scene(gridPane);
-        scene.getStylesheets().add(getClass().getResource("mainmenu.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
 
         registerListeners();
     }
@@ -121,7 +121,7 @@ public class MainMenu implements Page {
 
         button.setOnAction(event -> {
             // CHANGE SCENE TO BOOKING SCENE
-            Main.getInstance().getBooking().setMovie(dropDown.getValue());
+            Main.getInstance().setMovie(Main.getInstance().getMovieList().getMovieByTitle(dropDown.getValue()));
             Main.getInstance().getStage().setScene(Main.getInstance().getBooking().getScene());
         });
     }

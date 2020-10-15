@@ -39,3 +39,21 @@
     -fx-background-color: rgba(0,0,0,0.15);
     -fx-text-fill: black;
 }
+
+.main-header-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.22em;
+    -fx-text-alignment: center;
+}
+
+.check-box > .box {
+     -fx-padding: 10px;
+ }
+
+.check-box > .box > .mark {
+    -fx-padding: 10px;
+}
+
+.conf-label {
+    -fx-font-weight: bold;
+}

@@ -102,8 +102,6 @@ public class Booking implements Page {
 
     private Pattern phonePatten = Pattern.compile("\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}");
 
-    private String movie;
-
     private final Scene scene;
 
     private String customerName;
@@ -113,7 +111,7 @@ public class Booking implements Page {
 
     private final Label nameLabel = new Label("Namn");
     private final Label emailLabel = new Label("E-Mejl");
-    private final Label phoneLabel = new Label("Telefon Nummer");
+    private final Label phoneLabel = new Label("Telefonnummer");
     private final Label ticketsLabel = new Label("Antal Biljetter");
 
     private final TextField nameInput = new TextField();
@@ -122,7 +120,7 @@ public class Booking implements Page {
 
     private final ChoiceBox<Integer> ticketsInput = new ChoiceBox<>(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
 
-    private final Button confirmButton = new Button("Konfirmera");
+    private final Button confirmButton = new Button("Verifiera");
     private final Button cancelButton = new Button("Avbryt");
     private final Button bookButton = new Button("Boka");
 
@@ -166,7 +164,7 @@ public class Booking implements Page {
         gridPane.add(bookButton, 0, 10);
 
         scene = new Scene(gridPane);
-//        scene.getStylesheets().add(getClass().getResource("booking.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
 
         registerListeners();
     }
@@ -180,16 +178,17 @@ public class Booking implements Page {
             }
 
             if (!phonePatten.matcher(phoneInput.getText()).matches()) {
-                response.setText("Ditt telefon nummer är inte godkänt");
+                response.setText("Ditt telefonnummer är inte godkänt");
                 return;
             }
+
             customerName = nameInput.getText();
             customerEmail = emailInput.getText();
             customerNumber = phoneInput.getText();
             ticketsPurchased = ticketsInput.getValue();
             bookButton.setVisible(true);
 
-            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefon Nummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka på boka för att fortsätta!");
+            response.setText("Namn: " + customerName + "\nE-Mejl: " + customerEmail + "\nTelefonnummer: " + customerNumber + "\nAntal Biljetter: " + ticketsPurchased + "\n\nKlicka på boka för att fortsätta!");
         });
 
         cancelButton.setOnAction(event -> Main.getInstance().getStage().setScene(Main.getInstance().getMainMenu().getScene()));
@@ -201,18 +200,12 @@ public class Booking implements Page {
             customer.setPhoneNumber(customerNumber);
             customer.setNumberOfTickets(ticketsPurchased);
             Main.getInstance().setCustomer(customer);
+
+            Main.getInstance().getStage().setScene(Main.getInstance().getSeatSelection().getScene());
         });
     }
 
     public Scene getScene() {
         return scene;
-    }
-
-    public String getMovie() {
-        return movie;
-    }
-
-    public void setMovie(String movie) {
-        this.movie = movie;
     }
 }
