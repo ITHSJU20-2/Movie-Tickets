@@ -47,7 +47,7 @@ public class Main extends Application {
         seatSelection = new SeatSelection();
         confirmation = new Confirmation();
 
-        stage.setTitle("Java Filmer️");
+        stage.setTitle("Java Filmer");
         stage.setScene(mainMenu.getScene());
         stage.setResizable(false);
         stage.show();
