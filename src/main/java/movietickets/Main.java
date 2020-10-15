@@ -1,6 +1,7 @@
 package movietickets;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import movietickets.pages.Booking;
 import movietickets.pages.Confirmation;
@@ -50,6 +51,7 @@ public class Main extends Application {
         stage.setTitle("Java Filmer");
         stage.setScene(mainMenu.getScene());
         stage.setResizable(false);
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("super8.png")));
         stage.show();
     }
 
